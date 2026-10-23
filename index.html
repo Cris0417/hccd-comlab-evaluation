@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HCCD ComLab Evaluation Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #f4f7fb, #e9eef5);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #222;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 850px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #123c69, #0b5fa5);
+            color: white;
+            text-align: center;
+            padding: 38px 25px;
+        }
+
+        .school {
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* CONTENT */
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .status {
+            display: inline-block;
+            background: #e8f7ee;
+            color: #198754;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .event-label {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            font-size: 30px;
+            color: #123c69;
+            margin-bottom: 12px;
+        }
+
+        .event-description {
+            max-width: 620px;
+            margin: auto;
+            color: #666;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* BUTTON */
+        .evaluate-button {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 18px 42px;
+            background: #ff8c00;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.30);
+            transition: all 0.2s ease;
+        }
+
+        .evaluate-button:hover {
+            background: #e67d00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.40);
+        }
+
+        /* INSTRUCTIONS */
+        .instructions {
+            margin-top: 40px;
+            padding: 25px;
+            background: #f6f8fa;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #123c69;
+            margin-bottom: 15px;
+        }
+
+        .instructions ol {
+            padding-left: 22px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* QR */
+        .qr-section {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .qr-section h3 {
+            color: #123c69;
+            margin-bottom: 8px;
+        }
+
+        .qr-section p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        #qrcode {
+            display: flex;
+            justify-content: center;
+        }
+
+        #qrcode img {
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #f4f6f8;
+            text-align: center;
+            padding: 18px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        .footer strong {
+            color: #123c69;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+
+            .container {
+                width: 95%;
+                border-radius: 18px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .event-title {
+                font-size: 24px;
+            }
+
+            .evaluate-button {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="school">
+            Holy Child College of Davao
+        </div>
+
+        <h1>COMLAB EVALUATION PORTAL</h1>
+
+        <div class="subtitle">
+            Computer Laboratory • ICT Department
+        </div>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <div class="status">
+            ● EVALUATION OPEN
+        </div>
+
+        <div class="event-label">
+            Current Event
+        </div>
+
+        <h2 class="event-title" id="eventTitle">
+            ICT Month 2026
+        </h2>
+
+        <p class="event-description" id="eventDescription">
+            Thank you for participating in the activity.
+            Please take a few minutes to complete the evaluation
+            and share your feedback.
+        </p>
+
+
+        <!-- EVALUATION BUTTON -->
+
+        <a
+            id="evaluationButton"
+            class="evaluate-button"
+            href="https://forms.google.com/"
+            target="_blank"
+        >
+            📝 EVALUATE NOW
+        </a>
+
+
+        <!-- INSTRUCTIONS -->
+
+        <div class="instructions">
+
+            <h3>📌 Instructions</h3>
+
+            <ol>
+                <li>Click the <strong>Evaluate Now</strong> button.</li>
+                <li>Complete all required questions.</li>
+                <li>Review your answers.</li>
+                <li>Click <strong>Submit</strong>.</li>
+            </ol>
+
+        </div>
+
+
+        <!-- QR CODE -->
+
+        <div class="qr-section">
+
+            <h3>📱 Prefer Using Your Phone?</h3>
+
+            <p>
+                Scan the QR code below to open the evaluation form.
+            </p>
+
+            <div id="qrcode"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <strong>ICT Department</strong><br>
+
+        Holy Child College of Davao
+
+        <br><br>
+
+        Please answer the evaluation honestly and responsibly.
+
+    </div>
+
+</div>
+
+
+<!-- QR CODE LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+<script>
+
+    /*
+    =====================================================
+    EVALUATION SETTINGS
+    =====================================================
+
+    CHANGE ONLY THESE THREE ITEMS WHEN THERE IS A NEW EVENT.
+    =====================================================
+    */
+
+    const eventTitle = "MATHSCI 2026";
+
+    const eventDescription =
+        "Thank you for participating in the activity. Please take a few minutes to complete the evaluation and share your feedback.";
+
+    const evaluationLink =
+        "https://tinyurl.com/MA-SCI";
+
+
+    /*
+    =====================================================
+    DO NOT EDIT BELOW THIS LINE
+    =====================================================
+    */
+
+
+    // Update event title
+    document.getElementById("eventTitle").textContent = eventTitle;
+
+
+    // Update description
+    document.getElementById("eventDescription").textContent =
+        eventDescription;
+
+
+    // Update evaluation button
+    const evaluationButton =
+        document.getElementById("evaluationButton");
+
+    evaluationButton.href = evaluationLink;
+
+
+    // Generate QR Code
+    new QRCode(
+        document.getElementById("qrcode"),
+        {
+            text: evaluationLink,
+            width: 180,
+            height: 180,
+            colorDark: "#123c69",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        }
+    );
+
+</script>
+
+</body>
+</html>
